@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de examenes{% endblock %}
+{% block header %}Lista de examenes{% endblock %}
+
+{% block content %}
+{% if latest_exam_list %}
+    <ul>
+    {% for exam in latest_exam_list %}
+        <li><a href="{% url 'exams:detail' exam.id %}">{{ exam.exam_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay examenes disponibles.</p>
+{% endif %}
+{% endblock %}
